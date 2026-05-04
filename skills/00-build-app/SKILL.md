@@ -338,7 +338,7 @@ The main agent maintains **one human-readable timeline file per run** at `.ai/ag
 
 > Chronological log of `/00-build-app gates=none`. Read top-to-bottom.
 
-**Idea:** "Replace www.odylion.com with new Polish Next.js site"
+**Idea:** "Replace example.com with a new marketing site"
 **Mode:** autonomous · **Started:** 2026-05-04 13:42 · **Finished:** 14:38 (~56 min)
 
 ---
@@ -346,7 +346,7 @@ The main agent maintains **one human-readable timeline file per run** at `.ai/ag
 ## Phase 1 — Discover idea
 
 ```
-13:42 → Skill('01-discover-idea')        · write PRD from idea + odylion-facts.md
+13:42 → Skill('01-discover-idea')        · write PRD from idea + extra-context.md
 13:48 ← returned                         · .ai/PRD.md (124 lines), 0.2 → [x]
 ```
 
@@ -365,19 +365,19 @@ The main agent maintains **one human-readable timeline file per run** at `.ai/ag
 14:05 → Skill('05-plan-executor') Mode A
         │
         ├─ W1 — Foundation (sequential 1.1→1.2→1.3→1.4→1.5→1.6 ∥ 1.7..1.9)
-        │   ├─ 14:06 → 1.1  Pick design direction       · worktree feature/odylion-1.1
+        │   ├─ 14:06 → 1.1  Pick design direction       · worktree feature/1.1
         │   │   14:08 ← merged PR #12                   · picked design-01 + 2 adjustments
-        │   ├─ 14:08 → 1.2  Generate .ai/design.md      · worktree feature/odylion-1.2
+        │   ├─ 14:08 → 1.2  Generate .ai/design.md      · worktree feature/1.2
         │   │   14:11 ← merged PR #13
-        │   ├─ 14:11 → 1.3  database-architecture.md    · worktree feature/odylion-1.3
+        │   ├─ 14:11 → 1.3  database-architecture.md    · worktree feature/1.3
         │   │   14:16 ← merged PR #14                   · 8 tables, 4 ENUMs, RLS
         │   ├─ ... (1.4 → 1.5 → 1.6)
         │   └─ 14:30 W1 closed [x]                      · 9 tasks, 9 PRs
         │
         ├─ W2 — Marketing core (3 parallel)
-        │   ├─ 14:30 ┬→ 2.1 Homepage                    · worktree feature/odylion-2.1
-        │   │        ├→ 2.2 /dla-dostawcow              · worktree feature/odylion-2.2
-        │   │        └→ 2.3 /dla-partnerow              · worktree feature/odylion-2.3
+        │   ├─ 14:30 ┬→ 2.1 Homepage                    · worktree feature/2.1
+        │   │        ├→ 2.2 /audience-a                 · worktree feature/2.2
+        │   │        └→ 2.3 /audience-b                 · worktree feature/2.3
         │   ├─ 14:38 ┼← 2.2 merged PR #19
         │   ├─ 14:39 ┼← 2.1 merged PR #18
         │   ├─ 14:40 ┴← 2.3 merged PR #20
