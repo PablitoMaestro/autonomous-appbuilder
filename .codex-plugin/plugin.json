@@ -1,0 +1,12 @@
+{
+  "name": "pablitomaestro-agi-appbuilder",
+  "description": "Take any web idea or partially-completed repo through PRD → design exploration → scaffold → env bootstrap → autonomous execution → optional review → smoke test, until a production-ready app runs locally. Seven composable skills with strict contracts (worktrees, PR-merge-to-main, 3-tier tests, simplify pass). Cross-tool: works in Codex and Claude Code.",
+  "version": "0.1.0",
+  "author": {
+    "name": "PablitoMaestro"
+  },
+  "homepage": "https://github.com/PablitoMaestro/pablitomaestro-agi-appbuilder",
+  "repository": "https://github.com/PablitoMaestro/pablitomaestro-agi-appbuilder",
+  "license": "MIT",
+  "skills": "./skills"
+}

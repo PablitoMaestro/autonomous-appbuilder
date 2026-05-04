@@ -1,0 +1,4 @@
+.DS_Store
+*.lock
+node_modules/
+.ai/agent-logs/hooks-*.jsonl

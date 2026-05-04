@@ -1,0 +1,1 @@
+If you are have just created a PR, then make sure to merge the PR with main and clean worktree and PR. If you haven't created a PR then ask the user what he means.

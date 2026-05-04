@@ -1,0 +1,52 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p .ai/agent-logs && jq -c --arg ts \"$(date -u +%FT%TZ)\" '. + {ts: $ts}' >> .ai/agent-logs/hooks-$(date +%F).jsonl 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p .ai/agent-logs && jq -c --arg ts \"$(date -u +%FT%TZ)\" 'select(.tool_input.file_path | test(\"(\\\\.ai/(PRD|master-plan|functional-spec|site-map|techstack|environments|design|database-architecture)\\\\.md|apps/web/src/app/.*\\\\.tsx)$\")) | . + {ts: $ts}' >> .ai/agent-logs/hooks-$(date +%F).jsonl 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p .ai/agent-logs && jq -c --arg ts \"$(date -u +%FT%TZ)\" '. + {ts: $ts}' >> .ai/agent-logs/hooks-$(date +%F).jsonl 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p .ai/agent-logs && jq -c --arg ts \"$(date -u +%FT%TZ)\" 'select(.tool_input.command | test(\"git (commit|push|merge|rebase)|gh pr |gh repo \")) | . + {ts: $ts, kind: \"git\"}' >> .ai/agent-logs/hooks-$(date +%F).jsonl 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "log=\".ai/agent-logs/hooks-$(date +%F).jsonl\"; [ ! -f \"$log\" ] && { echo '{}'; exit 0; }; s=$(awk '/\"tool_name\":\"Skill\"/{n++} END{print n+0}' \"$log\"); w=$(awk '/\"tool_name\":\"Write\"|\"tool_name\":\"Edit\"/{n++} END{print n+0}' \"$log\"); a=$(awk '/\"tool_name\":\"Agent\"/{n++} END{print n+0}' \"$log\"); g=$(awk '/\"kind\":\"git\"/{n++} END{print n+0}' \"$log\"); t=$((s+w+a+g)); [ \"$t\" -eq 0 ] && { echo '{}'; exit 0; }; jq -nc --argjson s \"$s\" --argjson w \"$w\" --argjson a \"$a\" --argjson g \"$g\" '{systemMessage: (\"[build-app audit] Skill=\" + ($s|tostring) + \" · canon-edits=\" + ($w|tostring) + \" · subagents=\" + ($a|tostring) + \" · git-ops=\" + ($g|tostring))}'"
+          }
+        ]
+      }
+    ]
+  }
+}
