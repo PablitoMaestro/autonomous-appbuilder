@@ -4,6 +4,10 @@ All notable changes to this plugin will be documented here. Format follows [Keep
 
 ## [Unreleased]
 
+### Changed
+
+- Marketplace catalog extracted to dedicated repo [`PablitoMaestro/pablitomaestro-agi`](https://github.com/PablitoMaestro/pablitomaestro-agi). The plugin repo no longer contains `.claude-plugin/marketplace.json`; users now install via `/plugin marketplace add PablitoMaestro/pablitomaestro-agi` then `/plugin install pablitomaestro-agi-appbuilder@pablitomaestro-agi`.
+
 ## [0.1.0] — 2026-05-04
 
 ### Added

@@ -47,8 +47,8 @@ See [INSTALL.md](./INSTALL.md) for all three install paths.
 **Claude Code:**
 
 ```
-/plugin marketplace add PablitoMaestro/pablitomaestro-agi-appbuilder
-/plugin install pablitomaestro-agi-appbuilder@pablitomaestro-marketplace
+/plugin marketplace add PablitoMaestro/pablitomaestro-agi
+/plugin install pablitomaestro-agi-appbuilder@pablitomaestro-agi
 ```
 
 **Codex:**

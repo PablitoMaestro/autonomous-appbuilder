@@ -5,9 +5,11 @@ Three install paths. Pick the one that matches how you work.
 ## Path 1 — Claude Code (marketplace, recommended)
 
 ```
-/plugin marketplace add PablitoMaestro/pablitomaestro-agi-appbuilder
-/plugin install pablitomaestro-agi-appbuilder@pablitomaestro-marketplace
+/plugin marketplace add PablitoMaestro/pablitomaestro-agi
+/plugin install pablitomaestro-agi-appbuilder@pablitomaestro-agi
 ```
+
+The marketplace lives in a [dedicated repo](https://github.com/PablitoMaestro/pablitomaestro-agi); this plugin is one of the catalog entries.
 
 After install, run `/reload-plugins` to pick up the skills. Verify with:
 
