@@ -5,11 +5,11 @@ Three install paths. Pick the one that matches how you work.
 ## Path 1 — Claude Code (marketplace, recommended)
 
 ```
-/plugin marketplace add PablitoMaestro/pablitomaestro-agi
-/plugin install pablitomaestro-agi-appbuilder@pablitomaestro-agi
+/plugin marketplace add PablitoMaestro/pablitomaestro-agi-marketplace
+/plugin install autonomous-appbuilder@pablitomaestro-agi-marketplace
 ```
 
-The marketplace lives in a [dedicated repo](https://github.com/PablitoMaestro/pablitomaestro-agi); this plugin is one of the catalog entries.
+The marketplace lives in a [dedicated repo](https://github.com/PablitoMaestro/pablitomaestro-agi-marketplace); this plugin is one of the catalog entries.
 
 After install, run `/reload-plugins` to pick up the skills. Verify with:
 
@@ -17,7 +17,7 @@ After install, run `/reload-plugins` to pick up the skills. Verify with:
 /help
 ```
 
-You should see `/pablitomaestro-agi-appbuilder:00-build-app` and the six sub-skills under that namespace.
+You should see `/autonomous-appbuilder:00-build-app` and the six sub-skills under that namespace.
 
 **Hooks caveat (Claude Code only):** the settings watcher only watches `.claude/` directories that existed at session start. After first install, open `/hooks` once OR restart the session for the hook layer to fire.
 
@@ -27,10 +27,10 @@ Codex doesn't have a centralized marketplace yet, so install by cloning into `~/
 
 ```bash
 mkdir -p ~/.agents/plugins ~/.agents/skills
-git clone https://github.com/PablitoMaestro/pablitomaestro-agi-appbuilder \
-  ~/.agents/plugins/pablitomaestro-agi-appbuilder
-ln -s ~/.agents/plugins/pablitomaestro-agi-appbuilder/skills \
-  ~/.agents/skills/pablitomaestro-agi-appbuilder
+git clone https://github.com/PablitoMaestro/autonomous-appbuilder \
+  ~/.agents/plugins/autonomous-appbuilder
+ln -s ~/.agents/plugins/autonomous-appbuilder/skills \
+  ~/.agents/skills/autonomous-appbuilder
 ```
 
 Verify Codex picks them up — start a session and check that the skills appear in your skill listing.
@@ -38,7 +38,7 @@ Verify Codex picks them up — start a session and check that the skills appear 
 To update:
 
 ```bash
-cd ~/.agents/plugins/pablitomaestro-agi-appbuilder && git pull
+cd ~/.agents/plugins/autonomous-appbuilder && git pull
 ```
 
 ## Path 3 — Dev mode (clone & use in-place, both tools)
@@ -46,8 +46,8 @@ cd ~/.agents/plugins/pablitomaestro-agi-appbuilder && git pull
 Useful if you want to **edit the skills** while using them, or if you're evaluating before committing to a permanent install.
 
 ```bash
-git clone https://github.com/PablitoMaestro/pablitomaestro-agi-appbuilder
-cd pablitomaestro-agi-appbuilder
+git clone https://github.com/PablitoMaestro/autonomous-appbuilder
+cd autonomous-appbuilder
 ```
 
 The repo ships with two symlinks:
@@ -60,20 +60,20 @@ Open the repo with `claude` or `codex`, and the skills are available immediately
 For Claude Code dev-mode testing of the **plugin format itself** (with namespacing):
 
 ```bash
-claude --plugin-dir /path/to/pablitomaestro-agi-appbuilder
+claude --plugin-dir /path/to/autonomous-appbuilder
 ```
 
 When you change a skill's `SKILL.md`, run `/reload-plugins` to pick up the edits without restarting.
 
 ## Uninstall
 
-**Claude:** `/plugin uninstall pablitomaestro-agi-appbuilder`
+**Claude:** `/plugin uninstall autonomous-appbuilder`
 
 **Codex:**
 
 ```bash
-rm ~/.agents/skills/pablitomaestro-agi-appbuilder
-rm -rf ~/.agents/plugins/pablitomaestro-agi-appbuilder
+rm ~/.agents/skills/autonomous-appbuilder
+rm -rf ~/.agents/plugins/autonomous-appbuilder
 ```
 
 **Dev mode:** delete the cloned directory.

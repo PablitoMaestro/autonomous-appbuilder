@@ -6,7 +6,7 @@ All notable changes to this plugin will be documented here. Format follows [Keep
 
 ### Changed
 
-- Marketplace catalog extracted to dedicated repo [`PablitoMaestro/pablitomaestro-agi`](https://github.com/PablitoMaestro/pablitomaestro-agi). The plugin repo no longer contains `.claude-plugin/marketplace.json`; users now install via `/plugin marketplace add PablitoMaestro/pablitomaestro-agi` then `/plugin install pablitomaestro-agi-appbuilder@pablitomaestro-agi`.
+- Marketplace catalog extracted to dedicated repo [`PablitoMaestro/pablitomaestro-agi-marketplace`](https://github.com/PablitoMaestro/pablitomaestro-agi-marketplace). The plugin repo no longer contains `.claude-plugin/marketplace.json`; users now install via `/plugin marketplace add PablitoMaestro/pablitomaestro-agi-marketplace` then `/plugin install autonomous-appbuilder@pablitomaestro-agi-marketplace`.
 
 ## [0.1.0] — 2026-05-04
 
@@ -32,5 +32,5 @@ All notable changes to this plugin will be documented here. Format follows [Keep
 - Auto-deployable `.ai/agent-logs/README.md` (template at `skills/00-build-app/references/agent-logs-readme.md`, idempotently copied at Step 0.5 of every run)
 - Documentation: `README.md`, `INSTALL.md` (3 install paths: Claude marketplace / Codex manual / dev mode), `LICENSE` (MIT)
 
-[Unreleased]: https://github.com/PablitoMaestro/pablitomaestro-agi-appbuilder/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/PablitoMaestro/pablitomaestro-agi-appbuilder/releases/tag/v0.1.0
+[Unreleased]: https://github.com/PablitoMaestro/autonomous-appbuilder/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/PablitoMaestro/autonomous-appbuilder/releases/tag/v0.1.0
