@@ -92,6 +92,17 @@ Each sub-skill is also independently invocable:
 
 For Codex, skill discovery happens automatically — Codex picks them up from `.agents/skills/` (repo-scoped) or `~/.agents/skills/` (user-scoped).
 
+## Skill name resolution (bare vs namespaced)
+
+The skill text uses **bare names** (`Skill('01-discover-idea')`) when one skill in this plugin invokes another. This works for two reasons:
+
+1. **Plugin-installed mode (Claude Code marketplace install)** — within the same plugin's context, sibling skills resolve by their bare name. Cross-plugin references to the same skill name are disambiguated by namespace (`/pablitomaestro-agi-appbuilder:01-discover-idea`), but intra-plugin invocation does not require the prefix.
+2. **Dev mode (clone + symlink)** — skills are loaded as standalone (no plugin namespace), so bare names are the only form that exists.
+
+External skills our pipeline depends on (e.g., `simplify`, `frontend-design:frontend-design`) are referenced with their full namespace because they live in different plugins.
+
+When a user invokes the orchestrator from a Claude Code chat, they use the namespaced form `/pablitomaestro-agi-appbuilder:00-build-app`. Once the orchestrator runs, all internal `Skill('XX')` calls resolve within this plugin's context.
+
 ## What this plugin does NOT contain
 
 - **Stack-specific code generation** — that lives in plugin skills like `vercel:nextjs`, `vercel:shadcn`, `supabase:supabase`. Subagents invoke them when their task touches the relevant stack.
